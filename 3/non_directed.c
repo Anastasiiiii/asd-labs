@@ -115,37 +115,42 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT messg, WPARAM wParam, LPARAM lParam)
             int nxs, nys;
             for (int i = 0; i < 12; i++){
                 for (int j = 0; j < 12; j++){
+                         if (j >= i) {
                    if (A[i][j] == 1){
                             if (i == j)
                             {
-                            Arc(hdc, nx[j], ny[j], nx[j] + 40, ny[j] + 40, nx[j], ny[j], nx[j], ny[j]);
-                            MoveToEx(hdc, nx[i], ny[i], NULL);
-                            LineTo(hdc, nx[j], ny[j]);
-                            continue;
+                                Arc(hdc, nx[j], ny[j], nx[j] + 40, ny[j] + 40, nx[j], ny[j], nx[j], ny[j]);
+                                MoveToEx(hdc, nx[i], ny[i], NULL);
+                                LineTo(hdc, nx[j], ny[j]);
+                                continue;
                             }
-                            if ((i < 4) && ((j < 4))){
-                            MoveToEx(hdc, nx[i], ny[i], NULL);
-                            LineTo(hdc, nx[j], ny[j]);
-                            continue;
+                            if (((i==0) && (j==11))||((i==11) && (j==0))||(i==j+1)||(i==j-1)) {
+                                MoveToEx(hdc, nx[i], ny[i], NULL);
+                                LineTo(hdc, nx[j], ny[j]);
+                                continue;
+                            }
+                            if ((i < 4) && ((j < 4))) {
+                                MoveToEx(hdc, nx[i], ny[i], NULL);
+                                LineTo(hdc, nx[j], ny[j]);
+                                continue;
                                 }
-                            if ((i>=4) && (i < 8) && (j>=4) && (j < 8))
-                            {
-                            MoveToEx(hdc, nx[i], ny[i], NULL);
-                            LineTo(hdc, nx[j], ny[j]);
-                            continue;
+                            if ((i>=4) && (i < 8) && (j>=4) && (j < 8)) {
+                                MoveToEx(hdc, nx[i], ny[i], NULL);
+                                LineTo(hdc, nx[j], ny[j]);
+                                continue;
                             }
-                            if (((i >= 8) || (i == 0)) && ((j >= 8) || (j == 0)))
-                            {
-                            nxs = (nx[i] + nx[j])/1.8 - (ny[i] - ny[j])/8;
-                            nys = (ny[i] + ny[j])/1.8 - (nx[i] - nx[j])/8;
-                            MoveToEx (hdc, nx[j], ny[j], NULL);
-                            LineTo (hdc, nxs, nys);
-                            MoveToEx (hdc, nxs, nys, NULL);
-                            LineTo (hdc, nx[i], ny[i]);
-                            continue;
+                            if (((i >= 8) || (i == 0)) && ((j >= 8) || (j == 0))) {
+                                nxs = (nx[i] + nx[j])/1.8- (ny[i] - ny[j])/8;;
+                                nys = (ny[i] + ny[j])/1.8 - (nx[i] - nx[j])/8;
+                                MoveToEx (hdc, nx[j], ny[j], NULL);
+                                LineTo (hdc, nxs, nys);
+                                MoveToEx (hdc, nxs, nys, NULL);
+                                LineTo (hdc, nx[i], ny[i]);
+                                continue;
                             }
                             MoveToEx(hdc, nx[i], ny[i], NULL);
                             LineTo(hdc, nx[j], ny[j]);
+                            }
                             }
                             }
                             }
