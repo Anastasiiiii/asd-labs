@@ -6,7 +6,7 @@
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
-char ProgName[]="Лабораторна робота 4(1 формула)";
+char ProgName[]="Лабораторна робота 4(1 частина)";
 
 
 double** randm(int rows, int cols){
