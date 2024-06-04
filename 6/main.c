@@ -58,7 +58,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     if(!RegisterClass(&w))
         return 0;
     hWnd=CreateWindow(ProgName,
-        "ЛР 6. Виконала Легенька Ю.Д.",
+        "ЛР 6. Виконала Фартушняк А.К.,
         WS_OVERLAPPEDWINDOW,
         300,
         100,
